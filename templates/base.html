@@ -26,6 +26,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Prima app
@@ -48,6 +49,17 @@
                   <a class="dropdown-item" href="{% url 'seconda_app:es_if'%}">es_if</a>
                   <a class="dropdown-item" href="{% url 'seconda_app:if_else_elif'%}">if_else_elif</a>
                   <a class="dropdown-item" href="{% url 'seconda_app:es_for'%}">es_for</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  News
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'news:homeview'%}">homepage news</a>
+                  <a class="dropdown-item" href="{% url 'news:lista_articoli'%}">lista articoli</a>
+                  <a class="dropdown-item" href="{% url 'news:query_base'%}">query base</a> 
+       
                 </div>
               </li>
           </ul>
