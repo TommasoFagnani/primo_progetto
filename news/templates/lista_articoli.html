@@ -10,12 +10,18 @@
 <h1>Tutti gli articoli</h1>
 {% endif %}
 {% for articolo in articoli %}
-    {% if pk%}
-        <li>{{articolo.titolo}}</li>
-        <br><p>{{articolo.contenuto}}</p>
-    {% else %}
-        <li>{{articolo.titolo}}</li>
-        <br><p>{{articolo.contenuto}}</p>
-    {% endif %}
-    {% endfor %} 
+    <p><strong>Titolo: </strong>
+        {% comment %} Metodo non ottimale per creare link {% endcomment %}
+        <a href="/news/articoli/{{ articolo.id }}">{{ articolo.titolo }}</a>
+    </p>
+    <p><strong>Contenuto: </strong>
+        {{ articolo.contenuto }}
+    </p>
+    <p><strong>Autore: </strong>
+        {% comment %} Metodo corretto per creare link {% endcomment %}
+        <a href="{% url 'news:giornalista_detail' articolo.giornalista.id %}">{{ articolo.giornalista }}</a>
+    </p>
+    <hr>
+{% endfor %}
+
 {%endblock content%}

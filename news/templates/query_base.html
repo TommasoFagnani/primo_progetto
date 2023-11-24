@@ -87,7 +87,26 @@
     <h6>Query 16: Articoli pubblicati in un certo mese di un anno specifico</h6>
     {% for articolo in articoli_mese_anno %}
             <li>{{ articolo.titolo }}</li>
-        {% endfor %}
+    {% endfor %}
 
+    <h6>Query 17: Giornalisti con Articoli con almeno 100 visualizzazioni</h6>
     
+        {% for giornalista in giornalisti_articoli_popolari %}
+            <li>{{ giornalista.nome }} {{ giornalista.cognome }}</li>
+        {% endfor %}
+    
+    <h6>Query 18: Articoli con And</h6>
+    {% for articolo in articoli_con_and %}
+            <li>{{ articolo.titolo }}</li>
+    {% endfor %}
+
+    <h6>Query 19: Articoli con Or</h6>
+    {% for articolo in articoli_con_or %}
+            <li>{{ articolo.titolo }}</li>
+    {% endfor %}
+    
+    <h6>Query 19: Articoli con Not</h6>
+    {% for articolo in articoli_con_not %}
+            <li>{{ articolo.titolo }}</li>
+    {% endfor %}
 {%endblock content%}
