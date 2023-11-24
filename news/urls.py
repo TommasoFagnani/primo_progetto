@@ -4,7 +4,7 @@ from .views import home,indexNews,queryBase, giornalistaDetailView,articoloDetai
 app_name = 'news'
 
 urlpatterns = [
-    path('', home, name="homeview"),
+    path("homepageNews",home, name="homepageNews"),
     path("indexNews",indexNews, name="indexNews"),
     path("giornalisti/<int:pk>",giornalistaDetailView, name="giornalista_detail"),
     path("articoli/<int:pk>",articoloDetailView, name="articolo_detail"),
