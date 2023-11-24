@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title%} {{block.super}} | somma {% endblock title%}
+{% block content %}
+<style>
+    table, th, td {
+      border: 1px solid;
+    }
+    </style>
+
+<table>
+        <th>Studenti</th>
+        <th>Voti</th>
+        
+        {% for key, value in diz.items %}
+        <tr><td>{{key}}</td><td>{{value}}</td></tr>
+        {% endfor %}
+        
+
+        
+</table>
+{% endblock content%}
