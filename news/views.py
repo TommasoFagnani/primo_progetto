@@ -149,7 +149,7 @@ def queryBase(request):
     # ... spiegala
     articoli_con_not = Articolo.objects.exclude (giornalista__anno_di_nascita__lt=data)
     
-    articoli_giornalista = Giornalista.objects.filter(giornalista=Giornalista)
+   
     # Creare il dizionario context
     context = {
         'articoli_cognome': articoli_cognome,
@@ -172,7 +172,7 @@ def queryBase(request):
         'articoli_con_or':articoli_con_or,
         'articoli_con_not':articoli_con_not,
         'giornalisti_articoli_popolari':giornalisti_articoli_popolari,
-        'articoli_giornalista':articoli_giornalista,
+        
 
         
     }
