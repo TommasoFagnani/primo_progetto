@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{%block title%} 
+    Index Voti
+{%endblock title%}
+{%block content %}
+
+
+    <li><a href="{% url 'voti:view_a'%}">materie (view_a)</a></li>
+    <li><a href="{% url 'voti:view_b'%}">voti (view_b)</a></li>
+    <li><a href="{% url 'voti:view_c'%}">media voti (view_c)</a></li>
+
+
+
+
+{%endblock content%}

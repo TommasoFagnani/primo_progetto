@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{%block title%} 
+     Voti
+{%endblock title%}
+{%block content %}
+
+<h4>Voti :</h4>
+
+{% for key, value in voti.items %}
+
+<li>{{ key }}</li><br>
+
+    {% for x,y,z in value %}
+        {{ x }} , {{ y }}  <br>
+    {%endfor%}
+
+    <br>
+{%endfor%}
+
+
+
+
+{%endblock content%}

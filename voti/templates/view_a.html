@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{%block title%} 
+     Voti
+{%endblock title%}
+{%block content %}
+
+<h4>Materie :</h4>
+
+{% for x in materie %}
+<i> - {{ x }}<br> </i>
+{% endfor %}
+
+
+
+
+{%endblock content%}
