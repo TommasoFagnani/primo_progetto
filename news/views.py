@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Articolo, Giornalista
 import datetime
-from django.http import HttpResponse
-"""def home(request):
+from django.http import HttpResponse,JsonResponse
+
+def home(request):
     a = ""
     g = ""
     for art in Articolo.objects.all():
@@ -12,8 +13,8 @@ from django.http import HttpResponse
         g += (gio.nome + "<br>")
     response = "Articoli:<br>" + a + "<br>Giornalisti:<br>" + g
 
-    return HttpResponse("<h1>" + response + "</h1>")"""
-"""def home(request):
+    return HttpResponse("<h1>" + response + "</h1>")
+def home(request):
     a = []
     g = []
     for art in Articolo.objects.all():
@@ -25,7 +26,7 @@ from django.http import HttpResponse
     response = str(a) + "<br>" + str(g)
     print(response)
 
-    return HttpResponse("<h1>" + response + "</h1>")"""
+    return HttpResponse("<h1>" + response + "</h1>")
 def home(request):
     articoli = Articolo.objects.all()
     giornalisti = Giornalista.objects.all()
@@ -178,3 +179,59 @@ def queryBase(request):
     }
     return render(request, 'query_base.html', context)
 
+
+
+def giornalisti_list_api(request):
+    giornalisti=Giornalista.objects.all() # [:30]
+    data = {'giornalisti': list(giornalisti.values("pk", "nome", "cognome"))}
+    response = JsonResponse(data)
+    return response
+
+def giornalista_api(request,pk):
+    try:
+        giornalista=Giornalista.objects.get(pk=pk)
+        data={'giornalista':{
+                "nome":giornalista.nome,
+                "cognome:":giornalista.cognome,
+            }
+        }
+        response = JsonResponse(data)
+    except Giornalista.DoesNotExist:
+        response=JsonResponse({
+            "error":{
+                "code":404,
+                "message":"Giornalista non trovato"
+            }},
+            status=404)
+        
+
+    return response  
+    
+def articoli_list_api(request):
+    articoli = Articolo.objects.all()
+    data = {'articoli': list(articoli.values("pk", "titolo", "contenuto", "data", "visualizzazioni"))}
+    return JsonResponse(data)
+
+def articolo_api(request, pk):
+    try:
+        articolo = Articolo.objects.get(pk=pk)
+        data = {
+            'articolo': {
+                "titolo": articolo.titolo,
+                "contenuto": articolo.contenuto,
+                "data": articolo.data,
+                "visualizzazioni": articolo.visualizzazioni,
+                "autore": {
+                    "nome": articolo.giornalista.nome,
+                    "cognome": articolo.giornalista.cognome
+                }
+            }
+        }
+        response = JsonResponse(data)
+    except Articolo.DoesNotExist:
+        response = JsonResponse({
+            "error": {},
+            "code": 404,
+            "message": "Articolo non trovato"
+        }, status=404)
+    return response
