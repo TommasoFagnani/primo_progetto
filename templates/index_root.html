@@ -2,10 +2,27 @@
 {% block title%} {{block.super}} | index_root {% endblock title%}
 {% block content %}
 
+    <style>
+        body {
+            background-image: url('https://images.teamtalk.com/content/uploads/2022/05/05084829/Denzel-Dumfries-Inter-full-back.jpg');
+            background-size: cover;
+            background-repeat: repeat;
+            background-attachment: fixed; /* L'immagine rimane fissa mentre si scorre */
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            color: yellow; 
+        }
+    </style>
+
     <li><a href="/admin">Pannello admin</a></li>
     <li><a href="{% url 'prima_app:index'%}">index prima_app</a></li>
     <li><a href="{% url 'seconda_app:index2'%}">index seconda_app</a></li>
     <li><a href="{% url 'news:indexNews'%}">index news</a></li>
+
    
 
 {% endblock content%}
