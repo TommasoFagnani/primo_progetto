@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+ <style>
+        body {
+            background-image: url('https://c.tenor.com/jpCbpydaY5EAAAAC/reaction-miss.gif');
+            background-size: cover;
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            color: yellow; 
+        }
+    </style>      
+  <h1 style="color:yellow">LOGOUT EFFETTUATO!</h1>
+  <a href="{% url 'login'%}">Clicca qui per rieffettuare il login</a>
+  
+
+  
+{% endblock %}
