@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'news',
     'products',
     'corsheaders',
+    'forms_app',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +70,8 @@ TEMPLATES = [
                  os.path.join(BASE_DIR,('news/templates')),
                  os.path.join(BASE_DIR,('prova_pratica_1/templates')),
                  os.path.join(BASE_DIR,('seconda_app/templates')),
-                 os.path.join(BASE_DIR,('products/templates'))],
+                 os.path.join(BASE_DIR,('products/templates')),
+                 os.path.join(BASE_DIR,('forms_app/templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,3 +146,4 @@ MEDIA_ROOT = "uploads"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CRISPY_TEMPLATE_PACK = ''
